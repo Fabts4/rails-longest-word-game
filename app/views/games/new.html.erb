@@ -1,0 +1,16 @@
+
+<div class="container">
+  <h1 class="p-3">New Game</h1>
+  <div class="d-flex flex-row mb-3">
+    <% @letters.each do |letter|%>
+    <div class="p-2 btn btn-primary mx-3"><%= letter %></div>
+    <% end %>
+  </div>
+  <form class="col-auto" action="<%=score_path %>" data-turbo="false" method='post'>
+  <label for="" class="form-label">What is the longest word you can find ?</label>
+  <input class="form-control" type="text" name="answer">
+  <input class="btn btn-primary my-3" type="submit" value="Play">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+</form>
+</div>
